@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #6fd6e4; /* Light blue background */
+        }
+
+        .login-container {
+            background: #88e3fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #288ea7;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218188;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .logo {
+            width: 100px; /* Adjust size as needed */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://scontent.fmnl9-1.fna.fbcdn.net/v/t39.30808-6/411148852_778719297601816_7773284622599235922_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=PAVa1Atng1QQ7kNvgHPZc-6&_nc_ht=scontent.fmnl9-1.fna&_nc_gid=AERMwIpGafouBnDDeaDsUvi&oh=00_AYDaRXhpdbsQhQHVRrL0SLbn3frn3ss8Lga1wldqJuCHbQ&oe=670CE8F8" alt="Logo" class="logo">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+            <p id="error-message" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simple authentication check (for demo purposes)
+            if (username === 'ADMIN' && password === '12345678') {
+                alert('Login successful!');
+                // Redirect to home page
+                window.location.href = 'home.html'; // Updated to new CV page
+            } else {
+                document.getElementById('error-message').textContent = 'Invalid username or password.';
+            }
+        });
+    </script>
+</body>
+</html>
